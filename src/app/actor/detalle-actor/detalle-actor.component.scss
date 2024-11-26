@@ -1,0 +1,45 @@
+h2,
+h3,
+h4,
+h5 {
+  color: #ffffff;
+}
+
+.text-muted {
+  color: #cccccc;
+}
+
+p {
+  color: #dcdcdc;
+}
+
+.list-group-item {
+  background-color: #00b8b8;
+  color: #fff;
+  border: none;
+}
+
+.list-group-item i {
+  color: #fff;
+}
+
+.list-group-item:hover {
+  background-color: #009999;
+  color: #fff;
+}
+
+.img-fluid {
+  max-width: 200px;
+}
+
+span {
+  color: #000000;
+}
+
+i {
+  color: #000000 !important;
+}
+
+a:focus, button:focus {
+  outline: 2px solid #ff8c00;
+}

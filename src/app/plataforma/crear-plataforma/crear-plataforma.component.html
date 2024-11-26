@@ -1,0 +1,31 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+      <div class="container">
+          <h1 class="mb-2 title-section" i18n>Create platform</h1>
+          <div class="row">
+              <div class="container mt-2">
+                  <form [formGroup]="plataformaForm" (ngSubmit)="onSubmit()">
+                      <div class="mb-3">
+                          <label for="nombre" class="form-label" i18n>Platform name</label>
+                          <input id="nombre" type="text" class="form-control" formControlName="nombre" autocomplete="off">
+                          <div *ngIf="plataformaForm.get('nombre')?.invalid && (plataformaForm.get('nombre')?.dirty || plataformaForm.get('nombre')?.touched)"
+                              class="text-danger">
+                              <div *ngIf="plataformaForm.get('nombre')?.errors?.['required']" i18n>Platform name is required</div>
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="url" class="form-label" i18n>URL</label>
+                        <input id="url" type="text" class="form-control" formControlName="url" autocomplete="off">
+                        <div *ngIf="plataformaForm.get('url')?.invalid && (plataformaForm.get('url')?.dirty || plataformaForm.get('url')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="plataformaForm.get('url')?.errors?.['required']" i18n>Platform URL is required</div>
+                        </div>
+                    </div>
+                      <button type="submit" class="btn btn-primary" [disabled]="plataformaForm.invalid"
+                          i18n>Create</button>    
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

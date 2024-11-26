@@ -1,0 +1,41 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+    <div class="container" role="region" aria-labelledby="actors-title">
+      <h1 id="actors-title" class="mb-5 title-section" i18n>Actors</h1>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="pagination-controls d-flex align-items-center">
+          <label class="title-section me-2" for="itemsPerPage" i18n>Movies per page</label>
+          <select class="form-select w-auto" id="itemsPerPage" [(ngModel)]="itemsPerPage" 
+                  (change)="changeItemsPerPage(itemsPerPage)" aria-label="Number of movies per page">
+            <option *ngFor="let num of [4, 8, 12, 16]" [value]="num">{{ num }}</option>
+          </select>
+        </div>
+
+        <div class="pagination-buttons" role="navigation" aria-label="Controles de paginación">
+          <button class="btn btn-outline text-light me-2" (click)="goToPage(page - 1)" 
+                  [disabled]="page === 1" aria-label="Previous page">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <span class="mx-2 title-section" i18n>page {{ page }} of {{ totalPages }}</span>
+          <button class="btn btn-outline text-light ms-2" (click)="goToPage(page + 1)" 
+                  [disabled]="page === totalPages" aria-label="Next page">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row" role="list" aria-label="Lista de actores">
+        <div *ngFor="let actor of actoresPaginados" class="col-md-4 mb-4" role="listitem">
+          <a [routerLink]="['/actors', actor.id]" class="card h-100 cursor-pointer" 
+             attr.aria-label="View {{ actor.name }} profile">
+            <img [src]="actor.photo" class="card-img-top" aria-hidden="true">
+            <div class="card-body text-center">
+              <p class="card-title">{{ actor.name }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

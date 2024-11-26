@@ -1,0 +1,55 @@
+.movie-card {
+  background-color: #16181e;
+  border: none;
+
+  h2
+  {
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    :hover
+    {
+      text-decoration: underline;
+    }
+  }
+}
+
+.movie-card .card-title {
+  color: #fff;
+}
+
+.movie-img {
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.movie-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-star {
+  color: #00ffff;
+}
+
+.movie-card .btn-info {
+  background-color: #00b8b8;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.movie-card .btn-info:hover {
+  background-color: #009999;
+}
+
+.movie-card:hover, .movie-card:focus {
+  transform: scale(1.05);
+  outline: 2px solid #00b8b8;
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    width: 100%;
+  }
+}

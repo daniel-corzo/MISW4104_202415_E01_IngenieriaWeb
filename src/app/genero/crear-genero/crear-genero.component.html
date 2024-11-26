@@ -1,0 +1,25 @@
+<div class="m-5">
+    <div class="col-lg-12 mt-4">
+        <div class="container">
+            <h1 class="mb-5 title-section" i18n>Create genre</h1>
+            <div class="row">
+                <div class="container mt-4">
+                    <form [formGroup]="generoForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label" i18n>Genre name</label>
+                            <input id="nombre" type="text" class="form-control" formControlName="nombre" autocomplete="off">
+                            <div *ngIf="generoForm.get('nombre')?.invalid && (generoForm.get('nombre')?.dirty || generoForm.get('nombre')?.touched)"
+                                class="text-danger">
+                                <div *ngIf="generoForm.get('nombre')?.errors?.['required']" i18n>Genre name is required</div>
+                                <div *ngIf="generoForm.get('nombre')?.errors?.['minlength']" i18n>Genre name must be at least 3 characters long</div>
+                                <div *ngIf="generoForm.get('nombre')?.errors?.['nombreTomado']" i18n>This genre is already defined</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="generoForm.invalid"
+                            i18n>Create</button>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

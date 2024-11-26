@@ -1,0 +1,40 @@
+body {
+  background-color: #111;
+  color: #fff;
+}
+
+.platform-title {
+  font-weight: bold;
+  color: #fff;
+}
+
+.text-muted {
+  font-size: 16px !important;
+  font-weight: bold;
+  color: #b0c4de !important;
+}
+
+.platform-link {
+  color: #b0c4de;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 150px;
+  text-decoration: none;
+}
+
+.platform-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.movies-title {
+  color: #fff;
+  font-weight: 500;
+}
+
+.movie-card:hover, .movie-card:focus {
+  transform: scale(1.05);
+  outline: 2px solid #00b8b8;
+}

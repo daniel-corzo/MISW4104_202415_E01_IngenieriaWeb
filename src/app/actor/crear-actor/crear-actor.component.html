@@ -1,0 +1,59 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+      <div class="container">
+          <h1 class="mb-2 title-section" i18n>Create actor</h1>
+          <div class="row">
+              <div class="container mt-2">
+                  <form [formGroup]="actorForm" (ngSubmit)="onSubmit()">
+                      <div class="mb-3">
+                          <label for="nombre" class="form-label" i18n>Name</label>
+                          <input id="nombre" type="text" class="form-control" formControlName="nombre" autocomplete="off">
+                          <div *ngIf="actorForm.get('nombre')?.invalid && (actorForm.get('nombre')?.dirty || actorForm.get('nombre')?.touched)"
+                              class="text-danger">
+                              <div *ngIf="actorForm.get('nombre')?.errors?.['required']" i18n>Name is required</div>
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="foto" class="form-label" i18n>Photo</label>
+                        <input id="foto" type="text" class="form-control" formControlName="foto" autocomplete="off">
+                        <div *ngIf="actorForm.get('foto')?.invalid && (actorForm.get('foto')?.dirty || actorForm.get('foto')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="actorForm.get('foto')?.errors?.['required']" i18n>Photo is required</div>
+                            <div *ngIf="actorForm.get('foto')?.errors?.['pattern']" i18n>Photo must be a url in a valid format</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nacionalidad" class="form-label" i18n>Nationality</label>
+                        <input id="nacionalidad" type="text" class="form-control" formControlName="nacionalidad" autocomplete="off">
+                        <div *ngIf="actorForm.get('nacionalidad')?.invalid && (actorForm.get('nacionalidad')?.dirty || actorForm.get('nacionalidad')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="actorForm.get('nacionalidad')?.errors?.['required']" i18n>Nationality is required</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaNacimiento" class="form-label" i18n>Birthdate</label>
+                        <input id="fechaNacimiento" type="date" class="form-control" formControlName="fechaNacimiento" autocomplete="off">
+                        <div *ngIf="actorForm.get('fechaNacimiento')?.invalid && (actorForm.get('fechaNacimiento')?.dirty || actorForm.get('fechaNacimiento')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="actorForm.get('fechaNacimiento')?.errors?.['required']" i18n>Birthdate is required</div>
+                        </div>
+                        <div class="text-danger" *ngIf="actorForm.get('fechaNacimiento')?.errors?.['futureDate'] && actorForm.get('fechaNacimiento')?.touched">
+                            <p class="error" i18n>The birthdate cannot be greater than today's date</p>
+                        </div>                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="biografia" class="form-label" i18n>Biography</label>
+                        <textarea id="biografia" class="form-control" formControlName="biografia" autocomplete="off"></textarea>
+                        <div *ngIf="actorForm.get('biografia')?.invalid && (actorForm.get('biografia')?.dirty || actorForm.get('biografia')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="actorForm.get('biografia')?.errors?.['required']" i18n>Biography is required</div>
+                        </div>
+                    </div>
+                      <button type="submit" class="btn btn-primary" [disabled]="actorForm.invalid"
+                          i18n>Create</button>    
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

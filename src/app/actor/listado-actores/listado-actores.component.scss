@@ -1,0 +1,18 @@
+.card {
+    border: none;
+    background-color: #16181e;
+  }
+  
+  .card-title {
+    color: #fff;
+  }
+  
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card:hover, .card:focus {
+    transform: scale(1.05);
+    outline: 2px solid #00b8b8;
+  }

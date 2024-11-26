@@ -1,0 +1,58 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+      <div class="container">
+          <h1 class="mb-2 title-section" i18n>Create director</h1>
+          <div class="row">
+              <div class="container mt-2">
+                  <form [formGroup]="directorForm" (ngSubmit)="onSubmit()">
+                      <div class="mb-3">
+                          <label for="nombre" class="form-label" i18n>Director name</label>
+                          <input id="nombre" type="text" class="form-control" formControlName="nombre" autocomplete="off">
+                          <div *ngIf="directorForm.get('nombre')?.invalid && (directorForm.get('nombre')?.dirty || directorForm.get('nombre')?.touched)"
+                              class="text-danger">
+                              <div *ngIf="directorForm.get('nombre')?.errors?.['required']" i18n>Director name is required</div>
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="foto" class="form-label" i18n>Director photo</label>
+                        <input id="foto" type="text" class="form-control" formControlName="foto" autocomplete="off">
+                        <div *ngIf="directorForm.get('foto')?.invalid && (directorForm.get('foto')?.dirty || directorForm.get('foto')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="directorForm.get('foto')?.errors?.['required']" i18n>Director photo is required</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nacionalidad" class="form-label" i18n>Director nationality</label>
+                        <input id="nacionalidad" type="text" class="form-control" formControlName="nacionalidad" autocomplete="off">
+                        <div *ngIf="directorForm.get('nacionalidad')?.invalid && (directorForm.get('nacionalidad')?.dirty || directorForm.get('nacionalidad')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="directorForm.get('nacionalidad')?.errors?.['required']" i18n>Director nationality is required</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaNacimiento" class="form-label" i18n>Director birthDate</label>
+                        <input id="fechaNacimiento" type="date" class="form-control" formControlName="fechaNacimiento" autocomplete="off">
+                        <div *ngIf="directorForm.get('fechaNacimiento')?.invalid && (directorForm.get('fechaNacimiento')?.dirty || directorForm.get('fechaNacimiento')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="directorForm.get('fechaNacimiento')?.errors?.['required']" i18n>Director birthDate is required</div>
+                        </div>
+                        <div class="text-danger" *ngIf="directorForm.get('fechaNacimiento')?.errors?.['futureDate'] && directorForm.get('fechaNacimiento')?.touched">
+                            <p class="error" i18n>The birth date cannot be greater than today's date..</p>
+                        </div>                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="biografia" class="form-label" i18n>Director biography</label>
+                        <textarea id="biografia" class="form-control" formControlName="biografia" autocomplete="off"></textarea>
+                        <div *ngIf="directorForm.get('biografia')?.invalid && (directorForm.get('biografia')?.dirty || directorForm.get('biografia')?.touched)"
+                            class="text-danger">
+                            <div *ngIf="directorForm.get('biografia')?.errors?.['required']" i18n>Director biography is required</div>
+                        </div>
+                    </div>
+                      <button type="submit" class="btn btn-primary" [disabled]="directorForm.invalid"
+                          i18n>Create</button>    
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

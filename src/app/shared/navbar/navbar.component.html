@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid justify-content-between align-items-center">
+        <button
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="toggler-icon"></span>
+        </button>
+
+        <a
+          class="navbar-brand mx-auto d-lg-none d-flex align-items-center"
+          [routerLink]="['/']"
+        >
+          <img
+            src="assets/icon_app.svg"
+            alt="CineDoc Logo"
+            class="logo-mobile"
+          />
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/']" i18n>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/movies']" i18n>Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/actors']" i18n>Actors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/directors']" i18n>Directors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/platforms']" i18n>Platforms</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" i18n>
+                Create resources
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" [routerLink]="['/actors/create']" i18n>Create actor</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/directors/create']" i18n>Create director</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/genres/create']" i18n>Create genre</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/movies/create']" i18n>Create movie</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/platforms/create']" i18n>Create platform</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/shared/association']" [queryParams]="{ 'firstEntity': 'platforms', 'secondEntity': 'movies' }" i18n>Link platform to movie</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/shared/association']" [queryParams]="{ 'firstEntity': 'movies', 'secondEntity': 'platforms' }" i18n>Link movie to platform</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/shared/association']" [queryParams]="{ 'firstEntity': 'actors', 'secondEntity': 'movies' }" i18n>Link actor to movie</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/shared/association']" [queryParams]="{ 'firstEntity': 'movies', 'secondEntity': 'actors' }" i18n>Link movie to actor</a>
+                </li>    
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

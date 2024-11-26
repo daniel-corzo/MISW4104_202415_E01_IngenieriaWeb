@@ -1,0 +1,11 @@
+<div class="card movie-card h-100 shadow-sm"  routerLink="/movies/{{pelicula.id}}">
+  <img [src]="pelicula.poster" class="card-img-top rounded movie-img" alt="{{pelicula.title}}" />
+  <div class="card-body d-flex flex-column">
+    <h2 class="card-title movie-title">{{ pelicula.title }}</h2>
+    <div class="mb-2">
+      <ng-container *ngFor="let star of [].constructor(pelicula.popularity)">
+        <i class="fas fa-star text-info"></i>
+      </ng-container>
+    </div>
+  </div>
+</div>

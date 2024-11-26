@@ -1,0 +1,85 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+    <div class="container">
+      <h1 class="mb-2 title-section">{{ titleForm() }}</h1>
+      <div class="row">
+        <div class="container mt-2">
+          <form [formGroup]="linkForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="firstEntity" class="form-label">
+                {{ firstEntity | capitalize }}
+              </label>
+              <select
+                id="firstEntity"
+                formControlName="firstEntity"
+                class="form-control"
+              >
+                <option value="" i18n>Select an option</option>
+                <option
+                  *ngFor="let option of firstEntityList"
+                  [value]="option.id"
+                >
+                  {{ getDisplayName(option) }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  linkForm.get('firstEntity')?.invalid &&
+                  (linkForm.get('firstEntity')?.dirty ||
+                    linkForm.get('firstEntity')?.touched)
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="linkForm.get('firstEntity')?.errors?.['required']"
+                  
+                >
+                  {{ firstEntity | capitalize }} is required
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="secondEntity" class="form-label" >
+                {{ secondEntity | capitalize }}
+              </label>
+              <select
+                id="secondEntity"
+                formControlName="secondEntity"
+                class="form-control"
+              >
+                <option value="" i18n>Select an option</option>
+                <option
+                  *ngFor="let option of secondEntityList"
+                  [value]="option.id"
+                >
+                  {{ getDisplayName(option) }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  linkForm.get('secondEntity')?.invalid &&
+                  (linkForm.get('secondEntity')?.dirty ||
+                    linkForm.get('secondEntity')?.touched)
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="linkForm.get('secondEntity')?.errors?.['required']"
+                  
+                >
+                  {{ secondEntity | capitalize }} is required
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="linkForm.invalid"
+              i18n
+            >Link</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

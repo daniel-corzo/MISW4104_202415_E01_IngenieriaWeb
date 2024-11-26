@@ -1,0 +1,49 @@
+.bg-listado-genero {
+  background-color: #21242d;
+}
+
+.bg-listado-contenido {
+  background-color: #16181e;
+}
+
+.carousel-container {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.carousel {
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  text-align: left;
+  color: #fff;
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carousel-caption button {
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+h2 {
+  color: #ffffff;
+}

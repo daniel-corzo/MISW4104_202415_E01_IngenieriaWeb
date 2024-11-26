@@ -1,0 +1,43 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+    <div class="container">
+      <h1 class="mb-5" i18n>Platforms</h1>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div class="pagination-controls d-flex align-items-center">
+          <label class="title-section me-2" for="itemsPerPage" i18n>Platforms per page</label>
+          <select class="form-select w-auto" id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage(itemsPerPage)">
+            <option *ngFor="let num of [4, 8, 12, 16]" [value]="num">{{ num }}</option>
+          </select>
+        </div>
+
+
+        <div class="pagination-buttons">
+          <button class="btn btn-outline text-light me-2" (click)="goToPage(page - 1)" [disabled]="page === 1"
+            aria-label="Previous page">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <span class="mx-2 title-section" aria-live="polite" i18n>
+            Page {{ page }} of {{ totalPages }}
+          </span>
+          <button class="btn btn-outline text-light ms-2" (click)="goToPage(page + 1)" [disabled]="page === totalPages"
+            aria-label="Next page">
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div *ngFor="let platform of plataformasPaginadas" class="col-md-3 mb-4" routerLink="/platforms/{{platform.id}}" >
+          <div class="card platform-card h-100">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center" [attr.aria-label]="'Watch on ' + platform.name">
+              <p class="card-title">{{ platform.name }}</p>
+                <i class="fa-solid fa-play platform-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

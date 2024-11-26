@@ -1,0 +1,42 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+    <div class="container">
+      <h1 class="mb-5 title-section" i18n>Director details</h1>
+      <div class="row">
+        <div class="row">
+          <div class="col-lg-3 col-md-4">
+            <div class="text-start">
+              <img
+                [src]="director?.photo"
+                [alt]="director?.name"
+                class="img-fluid rounded"
+              />
+              <h2 class="mt-3"> {{ director?.name }} </h2>
+              <h3 class="mb-4 mt-4" i18n>Personal information</h3>
+              <p><strong i18n>Birth date</strong></p>
+              <p>{{ director?.birthDate | date }}</p>
+              <p><strong i18n>Nationality</strong></p>
+              <p> {{ director?.nationality }} </p>
+            </div>
+          </div>
+      
+          <div class="col-lg-9 col-md-8">
+            <div>
+              <h4 class="mt-4" i18n>Biography</h4>
+              <p>
+                {{ director?.biography }}
+              </p>
+      
+              <h4 class="mt-4" i18n>Movies</h4>
+              <div class="row gy-4">
+                <div class="col-sm-6 col-lg-3" *ngFor="let movie of director?.movies">
+                  <app-card-movie [pelicula]="movie"></app-card-movie>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

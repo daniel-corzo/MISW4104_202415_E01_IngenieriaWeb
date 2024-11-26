@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-12">
+    <a
+      class="navbar-brand"
+      href="/"
+    >
+      <img
+        src="assets/icon_app.svg"
+        alt="CineDoc Logo"
+        class="logo-mobile m-3"
+      />
+    </a>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col">
+    <h2 class="text-color" i18n>Genres</h2>
+  </div>
+  <div *ngFor="let genero of listadoGeneros">
+    <div class="m-2 nav-links">
+      <b class="text-color"><a routerLink="/genres/{{genero.id}}">{{ genero.type }}</a></b>
+    </div>
+  </div>
+  
+</div>

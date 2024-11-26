@@ -1,0 +1,80 @@
+.navbar {
+  background-color: #16181e;
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+
+  .logo-mobile {
+    width: 50px;
+    height: auto;
+  }
+
+  span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0;
+  background-color: #1c1e22;
+  border-radius: 8px;
+
+  .toggler-icon {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+  }
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+
+  &:hover {
+    color: #00b4d8;
+  }
+}
+
+.input-group {
+  .form-control {
+    background-color: #21242d;
+    border: none;
+    color: #fff;
+
+    &::placeholder {
+      color: #ccc;
+    }
+  }
+
+  .input-group-text {
+    background-color: #21242d;
+    border: none;
+    color: #fff;
+  }
+}

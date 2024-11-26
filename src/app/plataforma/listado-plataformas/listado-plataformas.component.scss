@@ -1,0 +1,34 @@
+.container {
+  color: #fff;
+}
+
+.platform-card {
+  background-color: #007a7a;
+  border: none;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.platform-link {
+  color: #b0c4de;
+}
+.platform-link:hover {
+  color: #ffffff;
+}
+
+.platform-card:hover, .platform-card:focus {
+  transform: scale(1.05);
+  outline: 2px solid #007a7a;
+}
+
+.card-title {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.platform-icon {
+  font-size: 3rem;
+  color: #fff;
+  margin-top: 1rem;
+}

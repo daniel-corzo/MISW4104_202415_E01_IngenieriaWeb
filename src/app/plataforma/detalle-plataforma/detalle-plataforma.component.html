@@ -1,0 +1,50 @@
+<div class="m-5">
+  <div class="col-lg-12 mt-4">
+    <div class="container">
+      <h2 class="mb-5 title-section" i18n>Platform details</h2>
+
+      <div class="row">
+        <div class="container mt-5">
+          <div class="row mb-4 align-items-center">
+            <div class="col-lg-8">
+              <h1 class="platform-title"> {{ plataforma?.name }} </h1>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="{{ plataforma?.url }}" target="_blank" class="platform-link text-muted"> {{ plataforma?.url }} </a>
+            </div>
+          </div>            
+          <div class="row mb-3">
+            <div class="col-12">
+              <h2 class="movies-title" i18n>Movies</h2>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div class="pagination-controls d-flex align-items-center">
+                  <label class="title-section me-2" for="itemsPerPage" i18n>Movies per page</label>
+                  <select class="form-select w-auto" id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage(itemsPerPage)">
+                    <option *ngFor="let num of [4, 8, 12, 16]" [value]="num">{{ num }}</option>
+                  </select>
+                </div>
+        
+        
+                <div class="pagination-buttons">
+                  <button class="btn btn-outline text-light me-2" (click)="goToPage(page - 1)" [disabled]="page === 1">
+                    <i class="fas fa-arrow-left"></i>
+                  </button>
+                  <span class="mx-2 title-section" i18n>Page {{ page }} of {{ totalPages }}</span>
+                  <button class="btn btn-outline text-light ms-2" (click)="goToPage(page + 1)" [disabled]="page === totalPages">
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gy-4">
+            <div class="col-sm-6 col-lg-3" *ngFor="let movie of peliculasPaginadas">
+              <app-card-movie [pelicula]="movie"></app-card-movie>
+            </div>
+          </div>
+        </div>            
+      </div>
+    </div>
+  </div>
+</div>

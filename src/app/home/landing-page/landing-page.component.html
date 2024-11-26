@@ -1,0 +1,73 @@
+
+<div class="col-lg-12">
+  <div class="carousel-container">
+    <div
+      id="movieCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div
+          *ngFor="let pelicula of listadoPeliculas; let i = index"
+          class="carousel-item"
+          [class.active]="i === 0"
+        >
+          <img
+            [src]="pelicula.poster"
+            class="d-block w-100"
+            [alt]="pelicula.title"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h1>{{ pelicula.title }}</h1>
+            <button class="btn btn-light">
+              <i class="bi bi-play-fill"></i> Trailer
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#movieCarousel"
+        data-bs-slide="prev"
+      >
+        <span
+          class="carousel-control-prev-icon"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden" i18n>Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#movieCarousel"
+        data-bs-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden" i18n>Next</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-lg-12">
+    <h2 i18n>Popular movies</h2>
+  </div>
+  <div class="col-lg-12">
+    <div class="row gy-4">
+      <div class="col-sm-6 col-lg-3" *ngFor="let movie of listadoPeliculasScroll">
+        <app-card-movie [pelicula]="movie"></app-card-movie>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="text-center" i18n>Loading...</div>
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollUpDistance]="50"
+    (scrolled)="onScroll()">
+  </div>
+</div>
